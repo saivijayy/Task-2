@@ -1,10 +1,10 @@
 Jenkins CI/CD Pipeline for Task 2
 Overview
-This repository contains the implementation of a simple Jenkins pipeline for automating the build and deployment of a Docker application. The pipeline includes the following stages:
+This repository contains the implementation of a simple Jenkins pipeline for automating the build and deployment of a Dockerized application. The pipeline includes the following stages:
 
 Build: Builds the Docker image for the application.
 
-Test: Runs any tests if required.
+Test: Runs tests (if required).
 
 Deploy: Deploys the application to the target environment.
 
@@ -49,13 +49,14 @@ bash
 Copy
 Edit
 sudo systemctl enable jenkins
-Access Jenkins in your web browser: Open http://localhost:8080 and follow the setup instructions. You’ll need the Jenkins unlock key, which you can find by running:
+Access Jenkins in your web browser:
+Open http://localhost:8080 and follow the setup instructions. You’ll need the Jenkins unlock key, which can be found by running:
 
 bash
 Copy
 Edit
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-Install suggested plugins when prompted.
+Install the suggested plugins when prompted.
 
 Create an admin user as prompted.
 
@@ -67,15 +68,26 @@ Copy
 Edit
 git clone https://github.com/saivijayy/task-2.git
 3. Set Up Jenkins Pipeline
-Open Jenkins and create a new Pipeline job.
+Create a new Pipeline job in Jenkins:
 
-In the Pipeline section, set the Definition to Pipeline script from SCM.
+Open Jenkins.
 
-Select Git as the SCM, and provide the repository URL.
+Click on "New Item" and select "Pipeline".
 
-Set the Branch Specifier to */main (or the branch you’re using).
+Provide a name for the job and click "OK".
 
-Jenkins will now automatically detect the Jenkinsfile in your repository and set up the pipeline accordingly.
+Configure the Pipeline:
+
+In the "Pipeline" section, set the Definition to Pipeline script from SCM.
+
+Select Git as the SCM.
+
+Provide the repository URL:
+https://github.com/saivijayy/task-2.git
+
+Set the Branch Specifier to */main (or the branch you are using).
+
+Jenkins will automatically detect the Jenkinsfile in your repository and set up the pipeline accordingly.
 
 4. Push Changes to Trigger Pipeline
 Make a change to your repository (e.g., modify the application code).
@@ -85,11 +97,14 @@ Push the changes to GitHub.
 Jenkins will automatically trigger the pipeline to Build, Test, and Deploy the application.
 
 Pipeline Explanation
-Build Stage: This step builds the Docker image based on the Dockerfile in the repository.
+Build Stage:
+This step builds the Docker image based on the Dockerfile in the repository.
 
-Test Stage: If needed, this can include unit or integration tests (though this is optional for now).
+Test Stage:
+If needed, this stage can include unit or integration tests (optional for now).
 
-Deploy Stage: The built Docker image is deployed to your environment.
+Deploy Stage:
+The built Docker image is deployed to the target environment.
 
 Tools Used
 Jenkins: Used for automating the build and deployment pipeline.
@@ -97,3 +112,18 @@ Jenkins: Used for automating the build and deployment pipeline.
 Docker: Used to containerize the application.
 
 GitHub: Version control system for managing the source code.
+
+Push the Changes
+Once you've updated the README.md file with the new content, you can stage, commit, and push the changes to GitHub:
+
+bash
+Copy
+Edit
+# Stage the README.md file
+git add README.md
+
+# Commit the changes
+git commit -m "Update README with Jenkins pipeline setup"
+
+# Push the changes to GitHub
+git push origin main
