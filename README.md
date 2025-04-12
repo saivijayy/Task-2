@@ -41,16 +41,14 @@ Open http://your-server-ip:8080 in your browser
 
 Retrieve the admin password:
 
-bash
-Copy
+
 sudo cat /var/lib/jenkins/secrets/initialAdminPassword
 Complete the setup wizard (install suggested plugins and create admin user)
 
 2. Repository Setup
 Clone this repository to your local machine:
 
-bash
-Copy
+
 git clone https://github.com/saivijayy/Task-2.git
 Pipeline Configuration
 Create Pipeline Job:
@@ -82,8 +80,7 @@ Make changes to your application code
 
 Commit and push changes to GitHub:
 
-bash
-Copy
+
 git add .
 git commit -m "Triggering Jenkins build"
 git push origin main
