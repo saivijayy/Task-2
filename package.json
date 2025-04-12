@@ -1,0 +1,23 @@
+{
+  "name": "task-2",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"No tests yet\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/saivijayy/Task-2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/saivijayy/Task-2/issues"
+  },
+  "homepage": "https://github.com/saivijayy/Task-2#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
