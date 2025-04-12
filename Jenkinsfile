@@ -1,33 +1,37 @@
 pipeline {
     agent any
 
-    environment {
-        DOCKER_BUILDKIT = 1
-        PATH = "/usr/local/bin:/usr/bin:$PATH"
-    }
-
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Building...'
-                docker.image('node:18').inside {
-                    sh 'npm install'
+                script {
+                    docker.image('node:18').inside {
+                        sh 'npm install'
+                    }
                 }
             }
         }
-
         stage('Test') {
             steps {
-                docker.image('node:18').inside {
-                    sh 'echo "No tests yet" && exit 0'
+                script {
+                    docker.image('node:18').inside {
+                        sh 'npm test'
+                    }
                 }
             }
         }
-
         stage('Deploy') {
             steps {
-                echo 'Deploying the app...'
-                sh 'docker build -t jenkins-ci-app .'
+                script {
+                    docker.image('node:18').inside {
+                        sh 'docker build -t jenkins-ci-app .'
+                    }
+                }
             }
         }
     }
